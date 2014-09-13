@@ -1,7 +1,6 @@
 package de.adornis.snookercalculator;
 
 import android.os.AsyncTask;
-import android.view.View;
 import android.widget.TextView;
 
 /**
@@ -9,17 +8,24 @@ import android.widget.TextView;
  */
 class Calculator extends AsyncTask<Integer, Void, Integer> {
 
+	TextView textview;
+
+	Calculator (TextView newTextView) {
+		textview = newTextView;
+	}
+
 	@Override
 	protected Integer doInBackground(Integer... params) {
 		int player = params[0];
 		int ballValue = params[1];
 
-		return (new Table()).remainingPoints();
+		Table table1 = new Table();
+		table1.resetTable();
+		return table1.remainingPoints();
 	}
 
-	void onPostExecute(int remainingPoints) {
-		final View remainingPointsView = findViewById(R.id.remainingPointsTextView);
-		TextView remainingPointsTextView = (TextView) remainingPointsView;
-		remainingPointsTextView.setText(String.valueOf(remainingPoints));
+	@Override
+	protected void onPostExecute(Integer remainingPoints) {
+		textview.setText(String.valueOf(remainingPoints));
 	}
 }

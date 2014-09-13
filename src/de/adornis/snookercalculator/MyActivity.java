@@ -56,7 +56,7 @@ public class MyActivity extends Activity {
 			default:
 				break;
 		}
-		new Calculator().execute(player, ballValueInt);
+		new Calculator((TextView) findViewById(R.id.remainingPointsTextView)).execute(player, ballValueInt);
 	}
 
 
