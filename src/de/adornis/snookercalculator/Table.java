@@ -16,6 +16,8 @@ class Table {
 	private int scorePlayer1;
 	private int scorePlayer2;
 
+	private int remainingPoints;
+
 	void resetTable() {
 		redBalls = 15;
 		yellowBall = true;
@@ -24,6 +26,7 @@ class Table {
 		blueBall = true;
 		pinkBall = true;
 		blackBall = true;
+		remainingPoints = 147;
 	}
 
 	int getScorePlayer1() {
@@ -32,6 +35,10 @@ class Table {
 
 	int getScorePlayer2() {
 		return scorePlayer2;
+	}
+
+	public int getRemainingPoints() {
+		return remainingPoints;
 	}
 
 	int remainingPoints() {
